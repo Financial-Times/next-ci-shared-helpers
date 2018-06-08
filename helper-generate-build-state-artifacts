@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# Generate artifacts that represent the state of
+# the build and can be used after the build has
+# run to aid with debugging
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+BUILD_STATE_DIR_PATH="build-state/"
+
+mkdir -p "${BUILD_STATE_DIR_PATH}";
+
+echo -e ">> You can find all build-state artifacts under the 'Artifacts' tab for this build\n";
+
+# artifact: npm-shrinkwrap.json
+npm shrinkwrap --loglevel=warn && mv npm-shrinkwrap.json "${BUILD_STATE_DIR_PATH}";
+echo ">> artifact: npm-shrinkwrap.json generated, saved";
+
+# artifact: npm-debug.log
+if [ -e npm-debug.log ]; then
+    mv npm-debug.log "${BUILD_STATE_DIR_PATH}";
+    echo ">> artifact: npm-debug.log exists, saved";
+fi

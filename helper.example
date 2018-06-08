@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# TODO: Make this example a bit more useful
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+# ...

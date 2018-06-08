@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# TODO: Complete this purpose
+#
+# Workaround for bug in npm where it doesn't correctly
+# resolve conflicting peer deps
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+if [ -e package.json ]; then
+
+    npm ls --production --parseable 2>&1 >/dev/null | \
+        sed -n -e 's/^npm ERR! peer dep missing: \(.*\),.*/\1/p' | \
+        xargs npm install --no-package-lock --no-save;
+
+fi

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# TODO: Complete this purpose to explain --no-save + package-lock.json
+#
+# Run npm update to ensure npm packages in node_modules are the latest
+# Include devDependencies, don't write a package-lock.json
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+npm update --dev --no-package-lock --no-save

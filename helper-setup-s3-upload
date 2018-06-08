@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# Download s3up for uploading files to Amazon S3 buckets
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+# Install S3UP binary
+sudo mkdir -p /usr/local/bin
+
+sudo curl -sfL https://github.com/matthew-andrews/s3up/releases/download/v1.0.5/s3up_linux_386 -o /usr/local/bin/s3up
+sudo chmod +x /usr/local/bin/s3up

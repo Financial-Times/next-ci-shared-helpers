@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# Download heroku-cli tool, config auth with .netrc
+#
+# Based on standalone script from https://devcenter.heroku.com/articles/heroku-cli#standalone-installation
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+# Install Heroku CLI
+wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz
+sudo mkdir -p /usr/local/lib /usr/local/bin
+sudo tar -xzf heroku-linux-amd64.tar.gz -C /usr/local/lib
+sudo ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
+
+# Output heroku-cli version so user can see in
+# build log what version is being used
+heroku --version
+
+# Heroku CLI Authentication - Netrc file format
+# https://devcenter.heroku.com/articles/authentication#netrc-file-format
+
+cat > ~/.netrc << EOF
+machine api.heroku.com
+	login $HEROKU_LOGIN
+	password $HEROKU_AUTH_TOKEN
+
+machine git.heroku.com
+	login $HEROKU_LOGIN
+	password $HEROKU_AUTH_TOKEN
+
+machine code.heroku.com
+	login $HEROKU_LOGIN
+	password $HEROKU_AUTH_TOKEN
+EOF
+
+# Set umask - owner r+w only
+chmod 0600 ~/.netrc
