@@ -1,5 +1,11 @@
 # Next CI Helper Scripts
 
+## Development
+
+Once you've cloned this repo, run `make install` before you start development.
+This will install local git hooks for the repo to help prevent you accidentally
+committing secrets into git.
+
 ## General guidelines for helper scripts
 
 - Copy `helper.example` as a starting point
