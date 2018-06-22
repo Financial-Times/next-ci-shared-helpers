@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# Bump package version and publicly publish to npm
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+npm version --no-git-tag-version ${CIRCLE_TAG}
+npm publish --access public

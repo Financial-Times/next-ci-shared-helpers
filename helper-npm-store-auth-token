@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# Store npmjs registry auth token so npm can authenticate with it
+# e.g. for `npm publish` (see `helper-npm-publish`)
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ${HOME}/.npmrc
