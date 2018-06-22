@@ -2,7 +2,8 @@
 #
 # HELPER PURPOSE
 #
-# TODO: Make this example a bit more useful
+# Store npmjs registry auth token so npm can authenticate with it
+# e.g. for `npm publish` (see `helper-npm-publish`)
 #
 
 # Set error handling

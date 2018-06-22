@@ -2,7 +2,7 @@
 #
 # HELPER PURPOSE
 #
-# TODO: Make this example a bit more useful
+# Bump package version and publicly publish to npm
 #
 
 # Set error handling
