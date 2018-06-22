@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# TODO: Make this example a bit more useful
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+npm version --no-git-tag-version ${CIRCLE_TAG}
+npm publish --access public
