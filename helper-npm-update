@@ -2,10 +2,20 @@
 #
 # HELPER PURPOSE
 #
-# TODO: Complete this purpose to explain --no-save + package-lock.json
+# Run npm update to ensure npm packages in node_modules are the latest.
 #
-# Run npm update to ensure npm packages in node_modules are the latest
-# Include devDependencies, don't write a package-lock.json
+# Why we pass the flags we do to `npm update`:
+#
+# --dev - Also update devDependencies
+#
+# --no-package-lock - Don't write a package-lock.json as
+#   we don't use it and it can cause issues with `npm ls`,
+#   which is run by subsequent tasks in CI:
+#   https://github.com/npm/npm/issues/19393
+#
+# --no-save - Don't update package.json - as we don't use
+#   package-lock.json, we use the checksum of package.json
+#   for some CI tasks e.g. naming node_module caches
 #
 
 # Set error handling

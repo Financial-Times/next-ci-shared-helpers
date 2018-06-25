@@ -1,11 +1,24 @@
 #!/usr/bin/env bash
 #
 # HELPER PURPOSE
+
+# Workaround for a bug in npm where it doesn't correctly
+# resolve conflicting peer dependencies.
 #
-# TODO: Complete this purpose
+# Parses errors for missing peer dependencies from
+# the output of `npm ls` and then pipes the package
+# names to `npm install`.
 #
-# Workaround for bug in npm where it doesn't correctly
-# resolve conflicting peer deps
+# Why we pass the flags we do to `npm install`:
+#
+# --no-package-lock - Don't write a package-lock.json as
+#   we don't use it and it can cause issues with `npm ls`,
+#   which is run by subsequent tasks in CI:
+#   https://github.com/npm/npm/issues/19393
+#
+# --no-save - Don't update package.json - as we don't use
+#   package-lock.json, we use the checksum of package.json
+#   for some CI tasks e.g. naming node_module caches
 #
 
 # Set error handling
