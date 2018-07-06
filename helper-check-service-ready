@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# Checks availability of service containers
+
+# Set error handling
+set -eu -o pipefail
+
+DOCKERIZE_VERSION=v0.3.0
+wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \
+sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \
+rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+for var in "$@"
+do
+    case $var in
+    redis)
+      dockerize -wait tcp://localhost:6379 -timeout 1m
+      ;;
+    neo4j)
+      dockerize -wait tcp://localhost:7687 -timeout 1m
+      ;;
+    esac
+done
