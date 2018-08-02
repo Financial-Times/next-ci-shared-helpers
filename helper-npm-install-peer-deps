@@ -22,7 +22,11 @@
 #
 
 # Set error handling
-set -eu -o pipefail
+#
+# Do *not* set `-o pipefail` as `npm ls --production --parseable`
+# will have an exit code of 1 when there are missing peer
+# dependencies, but that's what we're expecting to happen
+set -eu
 
 # HELPER COMMANDS
 
