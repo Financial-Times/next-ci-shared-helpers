@@ -8,7 +8,14 @@
 set -eu -o pipefail
 
 DOCKERIZE_VERSION=v0.3.0
-wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \
+if hash wget 2>/dev/null; then
+	wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \;
+elif hash curl 2>/dev/null; then
+	curl -XGET -L https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz --output dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \;
+else
+	echo 'wget or curl are required to run helper-check-service-ready'
+	exit 1
+fi	
 sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \
 rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
