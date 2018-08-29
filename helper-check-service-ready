@@ -16,7 +16,7 @@ else
 	echo 'wget or curl are required to run helper-check-service-ready'
 	exit 1
 fi	
-sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 for var in "$@"
