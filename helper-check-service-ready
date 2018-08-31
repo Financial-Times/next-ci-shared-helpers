@@ -9,7 +9,7 @@ set -eu -o pipefail
 
 DOCKERIZE_VERSION=v0.3.0
 
-if !hash dockerize 2>/dev/null; then
+if ! [ hash dockerize 2>/dev/null ]; then
 	if hash wget 2>/dev/null; then
 		wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz;
 	elif hash curl 2>/dev/null; then
@@ -20,8 +20,7 @@ if !hash dockerize 2>/dev/null; then
 	fi
 	mkdir ~/tmp
 	tar -C ~/tmp -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-	export PATH=$PATH:~/tmp
-	rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+	rm ~/tmp/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 fi
 
 for var in "$@"
