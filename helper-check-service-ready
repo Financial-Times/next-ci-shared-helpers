@@ -20,7 +20,7 @@ if ! [ hash dockerize 2>/dev/null ]; then
 	fi
 	mkdir ~/tmp
 	tar -C ~/tmp -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-	rm ~/tmp/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+	rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 fi
 
 for var in "$@"
