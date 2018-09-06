@@ -30,10 +30,15 @@ set -eu
 
 # HELPER COMMANDS
 
-if [ -e package.json ]; then
+[ -e package.json ] || exit
 
-    npm ls --production --parseable 2>&1 >/dev/null | \
-      sed -n -e 's/^npm ERR! peer dep missing: \(.*\),.*/\1/p' | \
-        xargs -I{} npm install --no-package-lock --no-save "{}"
+peer_deps=$(npm ls --production --parseable 2>&1 >/dev/null | \
+  sed -n -e 's/^npm ERR! peer dep missing: \(.*\),.*/\1/p')
 
-fi
+for package in $peer_deps; do
+  would_overwrite=$([ "$(grep ${package%@*} package.json)" == "" ])
+
+  if [ ! $would_overwrite]; then
+    echo "$package"
+  fi
+done | xargs -I{} npm install --no-package-lock --no-save "{}"
