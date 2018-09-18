@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# upload test coverage artifacts to coveralls
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+if [ -f coverage/lcov.info ]; then
+	cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+else
+	echo 'skip as test coverage not setup or coverage/lcov.info file not found'
+fi
