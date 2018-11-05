@@ -17,10 +17,14 @@
 #   package-lock.json, we use the checksum of package.json
 #   for some CI tasks e.g. naming node_module caches
 #
+# --depth - 
+#   Ensure all subdependencies are updated too
+#   https://trello.com/c/xVnHAakZ/447-use-the-old-npm-update-behaviour-in-our-cirleci-shared-helpers
+#
 
 # Set error handling
 set -eu -o pipefail
 
 # HELPER COMMANDS
 
-npm update --dev --no-package-lock --no-save
+npm update --dev --no-package-lock --no-save --depth 9999
