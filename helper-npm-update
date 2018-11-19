@@ -17,10 +17,15 @@
 #   package-lock.json, we use the checksum of package.json
 #   for some CI tasks e.g. naming node_module caches
 #
+# --depth - As of npm@2.6.1, the npm update will only
+#   inspect top-level packages. Prior versions of npm would
+#   also recursively inspect all dependencies. We set depth
+#   to 9999 to mimic the original behaviour
+#
 
 # Set error handling
 set -eu -o pipefail
 
 # HELPER COMMANDS
 
-npm update --dev --no-package-lock --no-save
+npm update --depth 9999 --dev --no-package-lock --no-save
