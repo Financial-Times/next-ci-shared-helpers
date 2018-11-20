@@ -22,5 +22,6 @@
 set -eu -o pipefail
 
 # HELPER COMMANDS
-
-npm update --dev --no-package-lock --no-save
+command='npm --depth 999 update --dev --no-package-lock --no-save'
+echo $command
+$command
