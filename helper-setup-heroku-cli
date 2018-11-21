@@ -22,6 +22,9 @@ sudo ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
 # build log what version is being used
 heroku --version
 
+# Heroku Repo plugin allows us to clear the git repo, so we can force deploys on circle rebuild
+heroku plugins:install heroku-repo
+
 # Heroku CLI Authentication - Netrc file format
 # https://devcenter.heroku.com/articles/authentication#netrc-file-format
 
