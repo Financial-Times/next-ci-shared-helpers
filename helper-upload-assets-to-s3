@@ -20,6 +20,7 @@ set -x -eu -o pipefail
 DESTINATION_BUCKET_EU="ft-next-hashed-assets-prod"
 DESTINATION_BUCKET_US="ft-next-hashed-assets-prod-us"
 DESTINATION_FOLDER="hashed-assets/page-kit"
+SOURCE_FOLDER="public"
 
 upload_file() {
 	local FILE="$1"
@@ -55,7 +56,7 @@ upload_file() {
 }
 
 upload_files() {
-	local SOURCE_FILES=($(find public/*.{js,css,gz,br,map} 2>/dev/null))
+	local SOURCE_FILES=($(find $SOURCE_FOLDER/*.{js,css,gz,br,map} 2>/dev/null))
 
 	for FILE in ${SOURCE_FILES[@]}; do
 		upload_file "$FILE" $DESTINATION_BUCKET_EU
