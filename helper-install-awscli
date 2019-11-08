@@ -2,7 +2,7 @@
 #
 # HELPER PURPOSE
 #
-# Installs the awscli tool and sets the aws authentication keys
+# Installs the awscli tool
 #
 
 # Set error handling
@@ -12,7 +12,3 @@ set -eu -o pipefail
 
 # install the awscli
 sudo pip install awscli
-
-# write the auth keys to .aws/credentials
-aws configure set aws_access_key_id $aws_access_hashed_assets
-aws configure set aws_secret_access_key $aws_secret_hashed_assets

@@ -2,6 +2,7 @@ module.exports = {
 	files: {
 		allow: [
 			'helper-generate-build-state-artifacts',
+			'helper-configure-awscli',
 			'helper-install-awscli',
 			'helper-install-puppeteer-deps',
 			'helper-npm-install-peer-deps',
