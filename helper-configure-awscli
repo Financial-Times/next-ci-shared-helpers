@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# HELPER PURPOSE
+#
+# Configures the awscli tool with aws authentication keys
+#
+
+# Set error handling
+set -eu -o pipefail
+
+# HELPER COMMANDS
+
+# provide keys as arguments when invoking the helper
+access_key_id="$1"
+secret_access_key="$2"
+
+# write the auth keys to .aws/credentials
+aws configure set aws_access_key_id "$access_key_id"
+aws configure set aws_secret_access_key "$secret_access_key"
+
