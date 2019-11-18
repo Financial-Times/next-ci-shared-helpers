@@ -17,10 +17,10 @@ set -x -eu -o pipefail
 # HELPER COMMANDS
 
 
+SOURCE_FOLDER=${1:-"public"}
+DESTINATION_FOLDER=${2:-"hashed-assets/page-kit"}
 DESTINATION_BUCKET_EU="ft-next-hashed-assets-prod"
 DESTINATION_BUCKET_US="ft-next-hashed-assets-prod-us"
-DESTINATION_FOLDER="hashed-assets/page-kit"
-SOURCE_FOLDER="public"
 
 upload_file() {
 	local FILE="$1"
