@@ -11,4 +11,4 @@ set -eu -o pipefail
 # HELPER COMMANDS
 
 # install the awscli
-sudo pip install awscli
+sudo apt-get install awscli
