@@ -24,6 +24,7 @@ DESTINATION_BUCKET_US="ft-next-hashed-assets-prod-us"
 
 upload_file() {
 	local FILE="$1"
+	local BASENAME=$(basename $FILE)
 	local DESTINATION_BUCKET="$2"
 	local ENCODING
 	local TYPE
@@ -48,7 +49,7 @@ upload_file() {
 			;;
 	esac
 
-	aws s3 cp $FILE "s3://$DESTINATION_BUCKET/$DESTINATION_FOLDER/$FILE" \
+	aws s3 cp $FILE "s3://$DESTINATION_BUCKET/$DESTINATION_FOLDER/$BASENAME" \
 		--cache-control=31536000 \
 		--content-type="$TYPE; charset=utf-8" \
 		--content-encoding="$ENCODING" \
