@@ -10,6 +10,7 @@ module.exports = {
 			'helper-npm-version-and-publish-public',
 			'helper-setup-heroku-cli',
 			'helper-setup-s3-upload',
+			'helper-upload-assets-to-s3',
 			'helper.example'
 		],
 		allowOverrides: []
