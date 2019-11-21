@@ -12,7 +12,7 @@
 #
 
 # Set error handling
-set -x -eu -o pipefail
+set -eu -o pipefail
 
 # HELPER COMMANDS
 
