@@ -18,7 +18,7 @@ set -x -eu -o pipefail
 
 
 SOURCE_FOLDER=${1:-"public"}
-DESTINATION_FOLDER=${2:-"hashed-assets/page-kit"}
+DESTINATION_FOLDER=${2:-"hashed-assets/uploads"}
 DESTINATION_BUCKET_EU="ft-next-hashed-assets-prod"
 DESTINATION_BUCKET_US="ft-next-hashed-assets-prod-us"
 
