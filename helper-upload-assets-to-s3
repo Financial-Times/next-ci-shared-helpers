@@ -26,7 +26,7 @@ upload_file() {
 	local FILE="$1"
 	local BASENAME=$(basename $FILE)
 	local DESTINATION_BUCKET="$2"
-	local ENCODING
+	local ENCODING="identity"
 	local TYPE
 
 	if [[ "$FILE" == *".gz" ]]; then
