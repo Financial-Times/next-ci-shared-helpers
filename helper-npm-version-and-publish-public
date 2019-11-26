@@ -10,10 +10,10 @@ set -eu -o pipefail
 
 # HELPER COMMANDS
 
-PRERELEASE_PATTERN='v[0-9]+\.[0-9]+\.[0-9]+-[a-z]+\.[0-9]+'
+PRERELEASE_IDENTIFIER="-[a-z-]+"
 RELEASE_TAG="latest"
 
-if [[ $CIRCLE_TAG =~ $PRERELEASE_PATTERN ]]; then RELEASE_TAG="pre-release"; fi
+if [[ $CIRCLE_TAG =~ $PRERELEASE_IDENTIFIER ]]; then RELEASE_TAG="pre-release"; fi
 
 npm version --no-git-tag-version ${CIRCLE_TAG}
 npm publish --access public --tag=${RELEASE_TAG}
