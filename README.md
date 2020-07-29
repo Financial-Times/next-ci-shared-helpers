@@ -19,7 +19,7 @@ Many of the scripts require a Unix environment so in order to run existing scrip
 
 The first step is to [install docker](https://www.docker.com/get-started) and once you're up and running you'll be able to run the scripts locally inside a Docker container.
 
-For example, the following command will run the `helper-install-awscli` script inside the container.
+For example, the following command will run the `helper-install-awscli` script inside the container (this will output many logs but if it has worked correctly the last line on the console should read `Setting up awscli (1.11.13-1) ...`.
 
 ```shell
 docker run --rm -it -w /tmp --mount type=bind,source="$(pwd)",destination=/tmp circleci/node:12.18-browsers ./helper-install-awscli
