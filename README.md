@@ -22,7 +22,7 @@ The first step is to [install docker](https://www.docker.com/get-started) and on
 For example, the following command will run the `helper-install-awscli` script inside the container.
 
 ```shell
-docker run --rm -it -w /tmp --mount type=bind,source="$(pwd)",destination=/tmp circleci/node:8-browsers ./helper-install-awscli
+docker run --rm -it -w /tmp --mount type=bind,source="$(pwd)",destination=/tmp circleci/node:12.18-browsers ./helper-install-awscli
 ```
 
 The command in the example can be largely re-used by simply changing the Docker image and script to run:
