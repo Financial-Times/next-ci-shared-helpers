@@ -33,7 +33,7 @@ set -eu
 if [ -e package.json ]; then
 
     npm ls --production --parseable 2>&1 >/dev/null | \
-      sed -n -e 's/^npm ERR! peer dep missing: \(.*\),.*/\1/p' | \
+      sed -n -e 's/^npm ERR! peer dep missing: \(.*\),.*/\1/p' | uniq | \
         xargs -I{} npm install --no-package-lock --no-save "{}"
 
 fi
