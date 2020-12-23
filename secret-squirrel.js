@@ -10,7 +10,7 @@ module.exports = {
 			'helper-npm-update',
 			'helper-check-service-ready',
 			'helper-npm-version-and-publish-public',
-			'helper-publish-gh-pages',
+			'helper-publish-github-pages',
 			'helper-setup-heroku-cli',
 			'helper-setup-s3-upload',
 			'helper-upload-assets-to-s3',
