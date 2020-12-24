@@ -62,6 +62,7 @@ _The convention across all FT repos is to name the step as follows: `shared-help
 - Include links to any relevant documentation in your comments
 - Try and avoid noisy output - it's hard to debug CI builds or understand what has happened if there are lots of unnecessary messages in the shell output
 - Echo out useful messages about progress and actions taken by the script - the flip side of avoiding noisy output: humans want to know what's happening/happened with their build
+- Remember to make your script executable by running the command `chmod +x ./<NAME_OF_SCRIPT>`
 
 ### Naming guidelines
 

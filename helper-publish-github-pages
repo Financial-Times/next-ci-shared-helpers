@@ -6,7 +6,7 @@
 
 
 TARGET_DIR=web/public/*
-TARGET_BRANCH=github-pages
+TARGET_BRANCH=gh-pages
 TEMP_DIR=tmp
 
 # Set error handling
