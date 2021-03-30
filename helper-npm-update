@@ -8,14 +8,14 @@
 #
 # --dev - Also update devDependencies
 #
-# --no-package-lock - Don't write a package-lock.json as
-#   we don't use it and it can cause issues with `npm ls`,
-#   which is run by subsequent tasks in CI:
-#   https://github.com/npm/npm/issues/19393
+# --no-package-lock - While we now use package-lock.json 
+#   in our repos, skip package-lock.json in this instance 
+#   as we don't want to accidentally modify the file 
+#   for subsequent steps in the workflow, e.g cache keys 
+#   and artefact generation.
 #
-# --no-save - Don't update package.json - as we don't use
-#   package-lock.json, we use the checksum of package.json
-#   for some CI tasks e.g. naming node_module caches
+# --no-save - We don't want to modify package.json as we
+#   use its checksum for some CI tasks e.g. naming node_module caches
 #
 
 # Set error handling
