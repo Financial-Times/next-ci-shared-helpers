@@ -11,10 +11,10 @@
 #
 # Why we pass the flags we do to `npm install`:
 #
-# --no-package-lock - While we now use package-lock.json 
-#   in our repos, skip package-lock.json in this instance 
-#   as we don't want to accidentally modify the file 
-#   for subsequent steps in the workflow, e.g cache keys 
+# --no-package-lock - While we now use package-lock.json
+#   in our repos, skip package-lock.json in this instance
+#   as we don't want to accidentally modify the file
+#   for subsequent steps in the workflow, e.g cache keys
 #   and artefact generation.
 #
 # --no-save - We don't want to modify package.json as we
@@ -34,7 +34,7 @@ if [ -e package.json ]; then
 
     npm ls --production --parseable 2>&1 >/dev/null | \
       sed -n -e 's/^npm ERR! peer dep missing: \(.*\),.*/\1/p' | \
-        xargs -I{} echo -n '"{}" ' | \
-          xargs -I{} npm install --no-package-lock --no-save "{}"
+          xargs -I{} echo -n '"{}" ' | \
+            xargs npm install --no-package-lock --no-save
 
 fi
